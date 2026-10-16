@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PR Skills — Dan's pathway</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@ button:focus-visible{outline:3px solid var(--n);outline-offset:3px}
 svg{display:block}
 </style></head><body>
 <nav id="nav"></nav>
-<div id="w"><svg id="s" viewBox="0 0 6400 900" role="img" aria-label="Fresque : Dan, employé Pernod Ricard, quitte une route unique, rencontre cinq personnes qui lui donnent cinq ingrédients, compose son cocktail, traverse l'écosystème 70/20/10 et poursuit son chemin."></svg></div>
+<div id="w"><svg id="s" viewBox="0 0 6400 900" role="img" aria-label="Panorama illustration: Dan, a Pernod Ricard employee, leaves a single road, meets five people who give him five ingredients, moves through the 70/20/10 ecosystem and keeps going forward."></svg></div>
 <script>
 const N='#1B2A4A',C='#E98C6D',Y='#F5D656',SF="'Fraunces',Georgia,serif",SS="'DM Sans',system-ui,sans-serif";
 let o='';
@@ -30,7 +30,7 @@ const ic=(t,x,y)=>{const a=`fill="none" stroke="${N}" stroke-width="4" stroke-li
  if(t=='con')return `<path d="M${x} ${y-13}L${x-13} ${y+9}H${x+13}z" ${a}/>`+[[0,-13],[-13,9],[13,9]].map(p=>`<circle cx="${x+p[0]}" cy="${y+p[1]}" r="6" fill="${N}"/>`).join('');
  if(t=='vis')return `<circle cx="${x}" cy="${y}" r="9" fill="${N}"/>`+[...Array(8)].map((_,k)=>{const r=k*Math.PI/4;return `<line x1="${x+15*Math.cos(r)}" y1="${y+15*Math.sin(r)}" x2="${x+22*Math.cos(r)}" y2="${y+22*Math.sin(r)}" ${a}/>`}).join('');
  return `<circle cx="${x}" cy="${y}" r="18" ${a}/><polygon points="${x},${y-12} ${x+6},${y} ${x},${y+12} ${x-6},${y}" fill="${N}"/>`};
-const tk=(x,y,t,n)=>`<circle cx="${x}" cy="${y}" r="52" fill="${Y}" opacity=".5"/><circle cx="${x}" cy="${y}" r="36" fill="#fff" stroke="${C}" stroke-width="4"/>`+ic(t,x,y)+T(x,y+64,[n],22,N,800,'middle',SF);
+const tk=(x,y,t,n)=>`<circle cx="${x}" cy="${y}" r="52" fill="${Y}" opacity=".5"/><circle cx="${x}" cy="${y}" r="36" fill="#fff" stroke="${C}" stroke-width="4"/>`+ic(t,x,y)+T(x,y+64,n.split('|'),22,N,800,'middle',SF);
 
 // ---- décor : ciel clair, nuages, rayons, collines, sol
 o+=`<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C4DCEE"/><stop offset="1" stop-color="#EEF6FB"/></linearGradient></defs><rect width="6400" height="900" fill="url(#g)"/>`;
@@ -46,10 +46,10 @@ o+=`<polygon points="0,0 860,540 0,900" fill="#fff" opacity=".7" stroke="${N}" s
 o+=`<rect x="20" y="290" width="240" height="8" rx="4" fill="${N}" opacity=".35"/>`+[0,1,2,3,4,5].map(i=>`<rect x="${34+i*38}" y="${236}" width="${20}" height="54" rx="8" fill="${['#E98C6D','#F5D656','#B8D4E9','#F4B9A2','#FFF1B8','#DCEBF5'][i]}" stroke="${N}" stroke-width="2"/>`).join('');
 o+=`<path d="M360 900L845 545H875L800 900z" fill="#fff" stroke="${N}" stroke-width="3"/><path d="M590 900L860 545" stroke="${C}" stroke-width="4" stroke-dasharray="18 14"/>`;
 // éclatement en chemins
-const br=[['M860 545C1100 560 1300 480 1600 470','A skill',1380,505],['M860 545C1100 600 1350 640 1600 640','A project',1400,650],['M860 545C1050 650 1300 700 1600 730','A lateral move',1400,742],['M860 545C1000 760 1300 880 1600 870','A new challenge',1400,868]];
+const br=[['M860 545C1100 560 1250 470 1450 480C1620 490 1600 780 1700 805','A skill',1380,505],['M860 545C1100 600 1300 620 1450 650C1600 680 1600 790 1700 805','A project',1400,650],['M860 545C1050 650 1300 700 1450 740C1580 770 1620 800 1700 805','A lateral move',1400,742],['M860 545C1000 760 1300 880 1450 868C1580 860 1620 820 1700 805','A new challenge',1400,868]];
 br.forEach(b=>o+=road(b[0],20));
 o+=road('M860 545C1000 720 1300 805 1700 805S2500 815 3000 805S3600 800 4000 805S4700 805 4900 800',34)+road('M3650 805H4850',60)+
- road('M4900 800C5100 780 5200 620 5350 545',18)+road('M4900 800C5200 780 5500 600 5720 545',18)+road('M4900 800C5300 800 5800 640 6050 540',18)+road('M4900 800C5400 810 6000 700 6400 590',18)+road('M4900 800C5500 830 6000 800 6400 730',18);
+ road('M4900 800C5100 780 5200 620 5350 545',18)+road('M4900 800C5200 780 5500 600 5720 545',18)+road('M4900 800C5300 800 5800 640 6050 540',18);
 for(let a=0;a<12;a++){const r=a*Math.PI/6;o+=`<line x1="${860+34*Math.cos(r)}" y1="${545+34*Math.sin(r)}" x2="${860+56*Math.cos(r)}" y2="${545+56*Math.sin(r)}" stroke="${Y}" stroke-width="7" stroke-linecap="round"/>`}
 br.forEach(b=>o+=S(b[2]-60,b[3]-42,140,34,'#FFF1B8')+T(b[2]+10,b[3]-19,[b[1]],16,N,700,'middle'));
 // personnages P1
@@ -59,8 +59,8 @@ o+=S(710,420,190,44,C)+T(805,449,['Suddenly, many paths.'],15,N,700,'middle');
 o+=P(610,860,1.25,{b:1,bag:1});
 const W=(s,n)=>{const r=[];let l='';s.split(' ').forEach(w=>{if((l+' '+w).trim().length>n){r.push(l);l=w}else l=(l+' '+w).trim()});r.push(l);return r};
 const RED='#C93A3A',BLU='#1F5C99';
-const M=['“Growing in my career means moving up”','“Growing is only for top talents”','“I’m too busy with my day-to-day job to develop”'];
-const R=['“Growth takes many directions: a skill, project, lateral move, new challenge”','“I can craft my unique path seizing all opportunities, even unexpected ones”','“I learn every day on my job, projects, through others and the ecosystem provided to me”'];
+const M=['“Growing in my career means moving up”','“I always ask for training and never get any”','“I’m too busy with my day-to-day job to develop”'];
+const R=['“Growth takes many directions: a skill, project, lateral move, new challenge”','“Paid courses aren’t the only way: I explore the Learning Hub, learn from others (20%) and on the job (70%)”','“I learn every day on my job, projects, through others and the ecosystem provided to me”'];
 o+=T(900,56,['Growing at Pernod Ricard, from myth to reality'],27,N,800,'start',SF);
 o+=`<circle cx="918" cy="100" r="15" fill="${RED}"/><path d="M911 93l14 14M925 93l-14 14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>`+T(944,109,['Myth'],27,RED,800,'start',SF);
 o+=`<circle cx="1278" cy="100" r="15" fill="#2A6FB0"/><path d="M1270 100l6 6l11-12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`+T(1304,109,['Reality'],27,BLU,800,'start',SF);
@@ -82,18 +82,17 @@ const pr={still:x=>`<g stroke="${N}" stroke-width="3"><rect x="${x-40}" y="778" 
  sign:x=>`<g stroke="${N}" stroke-width="3"><rect x="${x-5}" y="600" width="10" height="200" fill="${N}"/><rect x="${x-64}" y="640" width="120" height="34" rx="6" fill="${C}"/><rect x="${x-56}" y="690" width="120" height="34" rx="6" fill="#FFF1B8"/><circle cx="${x}" cy="586" r="28" fill="#fff"/><polygon points="${x},566 ${x+8},586 ${x},606 ${x-8},586" fill="${C}"/></g>`};
 const V=[['CURIOSITY','cur','Explore beyond what you already know.','Ever seen how this is made? Come look.',{t:'#fff',h:'#8A5A3C'},'still'],
 ['OPENNESS','ope','Say yes to the unexpected, be bold and comfortable with ambiguity','A new project, no plan yet. Want in?',{t:'#B8D4E9',h:'#2E2E2E',k:'#C98E66'},'door'],
-['CONNECTION','con','Learn from people around you.','Let’s grab a coffee — I know who to ask.',{t:'#F5D656',h:'#6B3F2A',k:'#E3B18B'},'cafe'],
+['CONNECTION|& CONVIVIALITY','con','Learn from people around you, with conviviality.','Let’s grab a coffee — I know who to ask.',{t:'#F5D656',h:'#6B3F2A',k:'#E3B18B'},'cafe'],
 ['VISIBILITY','vis','Make your skills and aspirations known.','Tell people what you are aiming for.',{t:N,h:'#8A8A8A'},'light'],
 ['INTENTION','int','Turn aspirations into action.','Pick one skill and make it a plan.',{t:'#F4B9A2',h:'#3A2A22',k:'#C98E66'},'sign']];
 V.forEach((v,i)=>{const cx=1780+i*300;
- o+=pr[v[5]](cx+110)+tk(cx,220,v[1],v[0])+T(cx,308,W(v[2],30),14,N,500,'middle');
+ o+=pr[v[5]](cx+110)+tk(cx,220,v[1],v[0])+T(cx,308+(i==2?28:0),W(v[2],30),14,N,500,'middle')+(i==2?S(cx+66,192,172,52,'#FFF1B8')+T(cx+82,214,['A founding value','of Pernod Ricard'],13,N,700):'');
  o+=B(cx-118,364,236,100,cx+45,590)+T(cx,392,W(v[3],26),16,N,700,'middle');
  o+=P(cx+45,805,.75,v[4])+P(cx-55,805,.7,{b:0,bag:1});
  if(i<4)o+=`<path d="M${cx+150} 490q75-40 150 0" fill="none" stroke="${C}" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>`});
 o+=T(1630,885,['Part 2'],19,N,700,'start',SS,'opacity=".55"');
 
 // ---- P3 : bar + écosystème 70/20/10
-o+=S(3240,30,400,142,'#fff')+T(3262,72,['Dan mixes a cocktail','that is his alone.'],27,N,800,'start',SF)+T(3262,138,['Curiosity + Openness + Connection','+ Visibility + Intention'],16,N,700);
 o+=`<rect x="3260" y="330" width="360" height="8" rx="4" fill="${N}" opacity=".4"/>`+['#F5D656','#FBE3D8','#DCEBF5','#FFF1B8','#F4B9A2'].map((c,i)=>`<rect x="${3285+i*66}" y="270" width="26" height="60" rx="9" fill="${c}" stroke="${N}" stroke-width="2.5"/><rect x="${3292+i*66}" y="252" width="12" height="20" rx="3" fill="${c}" stroke="${N}" stroke-width="2.5"/>`).join('');
 o+=`<rect x="3390" y="620" width="270" height="110" rx="14" fill="#F9D5C7" stroke="${N}" stroke-width="3"/><path d="M3540 550h74l-37 50z" fill="${C}" stroke="${N}" stroke-width="3"/><path d="M3577 600V620M3555 620h44" stroke="${N}" stroke-width="4"/><circle cx="3614" cy="550" r="12" fill="${Y}" stroke="${N}" stroke-width="3"/>`;
 o+=P(3310,805,1.1,{bag:1,ex:`<path d="M28 -140L60 -178" stroke-width="14" stroke-linecap="round" fill="none"/><rect x="48" y="-232" width="26" height="50" rx="8" fill="#DCEBF5"/>`});
@@ -105,10 +104,8 @@ o+=hub(4200,170,340,'#E3EFF8','20%','Peers','Learn with others',['Peers · Mento
  `<ellipse cx="4370" cy="425" rx="70" ry="16" fill="#fff" stroke="${N}" stroke-width="2.5"/>`+P(4290,440,.4,{t:C})+P(4370,432,.4,{t:Y,h:'#6B3F2A'})+P(4450,440,.4,{t:N,h:'#8A8A8A',k:'#E3B18B'})+`<path d="M4300 350h60v28h-40l-10 10z" fill="#fff" stroke="${N}" stroke-width="2"/>`);
 o+=hub(4560,250,230,'#FFF6CC','10%','Learning','Learn by training',['Academies','Learning contents'],
  `<rect x="4600" y="400" width="110" height="58" rx="6" fill="#fff" stroke="${N}" stroke-width="2.5"/><polygon points="4646,416 4646,442 4668,429" fill="${C}"/><rect x="4590" y="458" width="130" height="8" rx="4" fill="${N}"/>`);
-o+=S(3720,520,520,70,'#fff')+T(3740,551,['Pernod Ricard creates opportunities.','You bring them to life all along the year.'],19,N,700);
-o+=S(4270,520,170,56,'#E3EFF8')+T(4290,545,['Skills &','Career growth'],15,N,700);
-o+=P(3800,805,.9,{bag:1});
-o+=S(4480,492,300,86,'#FFF1B8')+T(4500,524,['Manager + HR:','skills coaches'],18,N,800,'start',SF)+T(4500,566,['all along the year'],13,N,500)+P(4650,805,.9,{t:'#B8D4E9',h:'#2E2E2E',k:'#C98E66'})+P(4730,805,.85,{t:'#fff',h:'#8A5A3C'});
+o+=`<path d="M3700 494H4790" stroke="${N}" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round"/>`+S(3700,515,1090,72,N,C)+T(3724,545,['Pernod Ricard creates opportunities.','You bring them to life all along the year.'],18,'#fff',700)+`<path d="M4200 530v42M4440 530v42" stroke="#fff" stroke-width="2" opacity=".5"/>`+T(4222,545,['Skills &','Career growth'],16,'#fff',700)+T(4462,543,['Manager + HR: skills coaches'],17,'#fff',800,'start',SF)+T(4462,566,['all along the year'],14,'#fff',500);
+o+=P(3800,805,.9,{bag:1})+P(4650,805,.9,{t:'#B8D4E9',h:'#2E2E2E',k:'#C98E66'})+P(4730,805,.85,{t:'#fff',h:'#8A5A3C'});
 o+=T(3230,885,['Part 3'],19,N,700,'start',SS,'opacity=".55"');
 
 // ---- P4 : la suite
@@ -122,6 +119,6 @@ o+=P(5010,850,1.3,{b:1,bag:1,ex:`<path d="M30 -140L60 -200" stroke-width="14" st
 document.getElementById('s').innerHTML=o;
 
 const s=document.getElementById('s'),nav=document.getElementById('nav');
-[['Fresque complète',0,6400],['Part 1',0,1600],['Part 2',1600,1600],['Part 3',3200,1600],['Part 4',4800,1600]].forEach((v,i)=>{const b=document.createElement('button');b.textContent=v[0];b.onclick=()=>{s.setAttribute('viewBox',`${v[1]} 0 ${v[2]} 900`);s.style.aspectRatio=`${v[2]}/900`;s.style.height=i?'auto':'70vh';s.style.width=i?'100%':'auto';[...nav.children].forEach(c=>c.setAttribute('aria-pressed',c===b))};nav.appendChild(b)});
+[['Full panorama',0,6400],['Part 1',0,1600],['Part 2',1600,1600],['Part 3',3200,1600],['Part 4',4800,1600]].forEach((v,i)=>{const b=document.createElement('button');b.textContent=v[0];b.onclick=()=>{s.setAttribute('viewBox',`${v[1]} 0 ${v[2]} 900`);s.style.aspectRatio=`${v[2]}/900`;s.style.height=i?'auto':'70vh';s.style.width=i?'100%':'auto';[...nav.children].forEach(c=>c.setAttribute('aria-pressed',c===b))};nav.appendChild(b)});
 nav.children[0].click();
 </script></body></html>
